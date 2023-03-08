@@ -27,7 +27,11 @@ CoffeeBreakDist = zeros(length(CoffeeBreakIdxs),1);
 CoffeeBreakDist(2:end) = CoffeeBreakIdxs(2:end)-CoffeeBreakIdxs(1:end-1);
 CoffeeBreakDist(1) = NaN;
 minDist = min(CoffeeBreakDist);
-distances = unique(CoffeeBreakDist);
+distances = unique(CoffeeBreakDist)
 idxMinDist = find(CoffeeBreakDist==minDist);
 CoffeeBreakDate = dates(CoffeeBreakIdxs);
 CoffeeBreakDateMinDist = dates(CoffeeBreakIdxs(idxMinDist));
+yearsMinDist = year(CoffeeBreakDateMinDist);
+yearDiffMinDist = zeros(length(yearsMinDist),1);
+yearDiffMinDist(1) = NaN;
+yearDiffMinDist(2:end) = yearsMinDist(2:end)-yearsMinDist(1:end-1)
